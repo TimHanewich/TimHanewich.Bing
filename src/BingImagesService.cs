@@ -18,8 +18,6 @@ namespace TimHanewich.Bing
             HttpResponseMessage resp = await hc.GetAsync(url);
             string web = await resp.Content.ReadAsStringAsync();
 
-            System.IO.File.WriteAllText(@"C:\Users\tahan\Downloads\bing.html", web);
-
             //Get the url's
             List<string> ToReturn = new List<string>();
             List<string> Splitter = new List<string>();
