@@ -1,5 +1,9 @@
 ﻿using System;
 using TimHanewich.Bing;
+using TimHanewich.Bing.Search;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 namespace FunctionalTesting
 {
@@ -8,12 +12,9 @@ namespace FunctionalTesting
         static void Main(string[] args)
         {
             
-            BingImagesService service = new BingImagesService();
-            string[] urls = service.GetImageUrlsAsync("kanye").Result;
-            foreach (string s in urls)
-            {
-                Console.WriteLine(s);
-            }
+            BingSearchService bss = new BingSearchService("");
+            BingSearchResult[] results = bss.SearchAsync("oscar sherer").Result;
+            Console.WriteLine(JsonConvert.SerializeObject(results, Formatting.Indented));
 
         }
     }
